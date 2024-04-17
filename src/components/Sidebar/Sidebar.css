@@ -1,0 +1,161 @@
+/* Define the neon color palette */
+:root {
+    --neon-blue: #00ffff; /* Electric blue */
+    --neon-green: #39ff14; /* Neon green */
+    --neon-pink: #ff007f; /* Hot pink */
+    --neon-yellow: #ffea00; /* Fluorescent yellow */
+}
+
+.sidebar {
+    width: 250px; /* Adjust the width as needed */
+    height: 100%;
+    background-color: #222; /* Dark background color */
+    color: #fff; /* Text color */
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 60px; /* Adjust padding to accommodate header */
+    overflow-y: auto; /* Enable scrolling if content exceeds sidebar height */
+    font-family: 'Roboto', sans-serif; /* Futuristic font family */
+    border-right: 5px solid var(--neon-blue); /* Neon border on the right */
+    transition: width 0.3s; /* Add transition for smooth width change */
+}
+
+.sidebar.collapsed {
+    width: 60px; /* Adjust the collapsed width as needed */
+}
+
+.sidebar-header {
+    padding: 10px; /* Decrease padding for collapsed mode */
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add neon border at the bottom of header */
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    color: var(--neon-blue); /* Electric blue text color */
+    font-size: 18px; /* Decrease font size for collapsed mode */
+    letter-spacing: 1px; /* Add letter spacing for futuristic feel */
+    text-transform: uppercase; /* Convert text to uppercase */
+}
+
+.sidebar-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-list li {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add borders between list items */
+    position: relative;
+}
+
+.sidebar-list li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold; /* Make font bold */
+    display: flex; /* Make the link container a flex container */
+    align-items: center; /* Align items vertically center */
+    position: relative; /* Add relative positioning for absolute tooltip */
+}
+
+.sidebar-list li a svg {
+    font-size: 24px; /* Increase icon size */
+}
+
+.sidebar-list li a .tooltip {
+    visibility: hidden;
+    background-color: var(--neon-blue); /* Neon blue background */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 5px 20px;
+    border-radius: 5px;
+    position: absolute;
+    
+    left: 40%; /* Center the tooltip horizontally */
+    transform: translateX(-50%); /* Adjust horizontal position */
+    font-size: 12px; /* Adjust font size */
+    opacity: 0; /* Initially invisible */
+    transition: opacity 0.3s; /* Add transition for smooth appearance */
+}
+
+.sidebar-list li a:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.sidebar-list li a:hover {
+    color: var(--neon-pink); /* Hot pink color on hover */
+    text-shadow: 0 0 10px var(--neon-pink); /* Add neon glow effect on hover */
+}
+
+/* Neon accent for active links */
+.sidebar-list li.active a {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* Glitch effect */
+@keyframes glitch {
+    0% {
+        transform: translate(0, 0) rotate(0);
+    }
+    10% {
+        transform: translate(-2px, 2px) rotate(-5deg);
+    }
+    20% {
+        transform: translate(-2px, -2px) rotate(5deg);
+    }
+    30% {
+        transform: translate(2px, 2px) rotate(-3deg);
+    }
+    40% {
+        transform: translate(2px, -2px) rotate(3deg);
+    }
+    50% {
+        transform: translate(0, 0) rotate(0);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0);
+    }
+}
+
+.glitch-effect {
+    animation: glitch 4s infinite alternate;
+}
+
+/* Hide tooltips and labels in collapsed state */
+.sidebar.collapsed .tooltip {
+    display: none;
+}
+
+/* Login/Logout button */
+.login-btn {
+    background-color: var(--neon-green); /* Neon green background */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 10px;
+    cursor: pointer;
+    display: flex; /* Make the button a flex container */
+    align-items: center; /* Align items vertically center */
+    transition: background-color 0.3s; /* Add transition for smooth color change */
+}
+
+.login-btn:hover {
+    background-color: var(--neon-yellow); /* Neon yellow background on hover */
+}
+
+/* Adjust spacing and color for collapsed state */
+.sidebar.collapsed .login-btn {
+    padding: 10px; /* Decrease padding */
+    margin: 5px; /* Adjust margin */
+    background-color: var(--neon-blue); /* Neon blue background */
+}
+
+.sidebar.collapsed .login-btn:hover {
+    background-color: var(--neon-green); /* Neon green background on hover */
+}
